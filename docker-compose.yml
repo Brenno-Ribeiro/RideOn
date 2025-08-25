@@ -1,0 +1,39 @@
+services:
+  RideOnPostgres:
+    image: postgres:latest
+    container_name: RIDEON-DATA-BASE
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
+      POSTGRES_DB: ${POSTGRES_DB:-rideon_development}
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    networks:
+      - rideon-network
+
+  RideOnApi:
+    image: rideon-rideonapi
+    build:
+      context: ./src/RideOn-Back
+      dockerfile: Dockerfile
+    container_name: RIDEON-BACK-END
+    depends_on:
+      - RideOnPostgres
+    ports:
+      - "5001:80"
+    environment:
+      # Connection string usando variáveis de ambiente do container
+      ConnectionStrings__DefaultConnection: "Host=RideOnPostgres;Port=5432;Database=${POSTGRES_DB:-rideon_development};Username=${POSTGRES_USER:-admin};Password=${POSTGRES_PASSWORD:-admin}"
+    networks:
+      - rideon-network
+
+networks:
+  rideon-network:
+    driver: bridge
+
+volumes:
+  db_volume:
+    driver: local

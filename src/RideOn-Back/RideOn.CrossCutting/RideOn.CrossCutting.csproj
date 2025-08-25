@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RideOn.Application\RideOn.Application.csproj" />
+    <ProjectReference Include="..\RideOn.Domain\RideOn.Domain.csproj" />
+    <ProjectReference Include="..\RideOn.Infrastructure\RideOn.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
