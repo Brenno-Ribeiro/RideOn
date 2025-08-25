@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RideOn.Application", "RideO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RideOn.API", "RideOn.API\RideOn.API.csproj", "{01515810-C48E-46C1-9D28-51E175BFD75F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - CrossCutting", "5 - CrossCutting", "{EBAB00E5-ECFB-4C6D-88C4-D708B3BC7EBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RideOn.CrossCutting", "RideOn.CrossCutting\RideOn.CrossCutting.csproj", "{36B1414B-AEA4-48C6-A427-6FA85B3A6E89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{01515810-C48E-46C1-9D28-51E175BFD75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01515810-C48E-46C1-9D28-51E175BFD75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01515810-C48E-46C1-9D28-51E175BFD75F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B1414B-AEA4-48C6-A427-6FA85B3A6E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B1414B-AEA4-48C6-A427-6FA85B3A6E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B1414B-AEA4-48C6-A427-6FA85B3A6E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B1414B-AEA4-48C6-A427-6FA85B3A6E89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{F3C33C1A-040E-4CF5-A1C0-66896518F10A} = {A4D61009-FCE6-40FF-B1D4-2BB1FFAC500F}
 		{E57C0DAC-EEF9-47FE-87F5-A720390DBC2C} = {63B14688-EE0E-4785-B2CA-5FA7C4E88A18}
 		{01515810-C48E-46C1-9D28-51E175BFD75F} = {469D97F4-4E46-4FBA-9766-D993DECE01CF}
+		{36B1414B-AEA4-48C6-A427-6FA85B3A6E89} = {EBAB00E5-ECFB-4C6D-88C4-D708B3BC7EBD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {999C5697-C936-4162-B33B-0A0829A3D62E}
