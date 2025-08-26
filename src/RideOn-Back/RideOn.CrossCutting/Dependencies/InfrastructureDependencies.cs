@@ -24,6 +24,8 @@ public static class InfrastructureDependencies
 
 
         services.AddScoped<IMotorcycleRepository, MotocycleRepository>();
+        services.AddScoped<IDeliveryManRepository, DeliveryManRepository>();
+        services.AddScoped<IRentalRepository, RentalRepository>();
         
         return services;
     }

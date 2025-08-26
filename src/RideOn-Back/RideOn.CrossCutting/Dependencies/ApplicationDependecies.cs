@@ -10,6 +10,8 @@ public static class ApplicationDependecies
     public static IServiceCollection AddApplicationDependencies(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<IMotocycleService, MotorcycleService>();
+        services.AddScoped<IDeliveryManService, DeliveryManService>();
+        services.AddScoped<IRentalService, RentalService>();
 
         services.AddAutoMapper(typeof(RideOnMapper));
 
