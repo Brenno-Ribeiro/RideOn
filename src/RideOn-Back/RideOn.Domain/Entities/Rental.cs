@@ -30,5 +30,9 @@ public class Rental : Entity
         ReturnDate = returnDate;
         DeliveryMan = deliveryMan;
         Motorcycle = motorcycle;
+        Created_At = DateTime.UtcNow;
+        Updated_At = DateTime.UtcNow;
+        Created_by = Guid.NewGuid();
+        Updated_by = Guid.NewGuid();
     }
 }

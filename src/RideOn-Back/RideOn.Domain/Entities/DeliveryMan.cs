@@ -19,12 +19,13 @@ public class DeliveryMan : Entity
 
     public DeliveryMan(string? name, DateTime birthDate, CNPJ? cNPJ, CNH? cNH)
     {
-        Id = Guid.NewGuid();
         Name = name;
         BirthDate = birthDate;
         CNPJ = cNPJ;
         CNH = cNH;
-        Created_At = DateTime.Now;
-        Updated_At = DateTime.Now;
+        Created_At = DateTime.UtcNow;
+        Updated_At = DateTime.UtcNow;
+        Created_by = Guid.NewGuid();
+        Updated_by = Guid.NewGuid();
     }
 }

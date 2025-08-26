@@ -14,11 +14,12 @@ public class Motorcycle : Entity
 
     public Motorcycle(int year, string? model, Plate plate)
     {
-        Id = Guid.NewGuid();
         Year = year;
         Model = model;
         Plate = plate;
-        Created_At = DateTime.Now;
-        Updated_At = DateTime.Now;
+        Created_At = DateTime.UtcNow;
+        Updated_At = DateTime.UtcNow;
+        Created_by = Guid.NewGuid();
+        Updated_by = Guid.NewGuid();
     }
 }

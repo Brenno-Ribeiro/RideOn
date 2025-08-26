@@ -18,7 +18,7 @@ namespace RideOn.Infrastructure.Repositories
 
         public async Task<Motorcycle> GetMotorcycleByPlate(string plate)
         {
-            return await _context.Motorcycles.FirstOrDefaultAsync(moto => moto.Plate.Number.Equals(plate, StringComparison.CurrentCultureIgnoreCase));
+            return await _context.Motorcycles.FirstOrDefaultAsync(m => EF.Functions.ILike(m.Plate.Number, plate));
         }
 
         public async Task<bool> UpdatePlate(Guid id, string plate)
