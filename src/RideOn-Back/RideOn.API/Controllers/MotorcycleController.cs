@@ -63,6 +63,11 @@ namespace RideOn.API.Controllers
         {
             var result = await _motocycleService.DeleteMotorcycle(id);
 
+            if (!result)
+            {
+                return StatusCode(400, new { mensagem = "Moto não pode excluida, pois está alugada!" });
+            }
+
             return StatusCode(200, result);
         }
     }

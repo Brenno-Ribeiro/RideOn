@@ -11,6 +11,9 @@ namespace RideOn.Infrastructure.Repositories
         {
         }
 
-  
+        public async Task<bool> HasMotorcycleRental(Guid id)
+        {
+            return await _context.Rentals.AnyAsync(mt => mt.MotorcycleId == id);
+        }
     }
 }

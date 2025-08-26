@@ -2,19 +2,19 @@
 
 public class Rental : Entity
 {
-    public decimal DailyRate { get; private set; }
+    public decimal DailyRate { get; set; }
     public int Plan { get; set; }
 
-    public DateTimeOffset StartDate { get; private set; }
-    public DateTimeOffset EndDate { get; private set; }
-    public DateTimeOffset ExpectedEndDate { get; private set; }
-    public DateTimeOffset ReturnDate { get; private set; }
+    public DateTimeOffset StartDate { get; set; }
+    public DateTimeOffset EndDate { get; set; }
+    public DateTimeOffset ExpectedEndDate { get; set; }
+    public DateTimeOffset ReturnDate { get; set; }
 
     public Guid DeliveryManId { get; set; }
-    public DeliveryMan? DeliveryMan { get; private set; }
+    public DeliveryMan? DeliveryMan { get; set; }
 
     public Guid MotorcycleId { get; set; }
-    public Motorcycle? Motorcycle { get; private set; }
+    public Motorcycle? Motorcycle { get; set; }
 
     public Rental()
     {

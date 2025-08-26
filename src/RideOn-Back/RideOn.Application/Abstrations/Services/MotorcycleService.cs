@@ -12,11 +12,13 @@ namespace RideOn.Application.Abstrations.Services;
 public class MotorcycleService : IMotocycleService, IMotorcycleBusinessRules
 {
     private readonly IMotorcycleRepository? _motorcycleRepository;
+    private readonly IRentalRepository? _rentalRepository;
     private readonly IMapper _mapper;
 
-    public MotorcycleService(IMotorcycleRepository? motorcycleRepository, IMapper mapper)
+    public MotorcycleService(IMotorcycleRepository? motorcycleRepository, IRentalRepository? rentalRepository, IMapper mapper)
     {
         _motorcycleRepository = motorcycleRepository;
+        _rentalRepository = rentalRepository;
         _mapper = mapper;
     }
 
@@ -27,8 +29,17 @@ public class MotorcycleService : IMotocycleService, IMotorcycleBusinessRules
 
     public async Task<bool> DeleteMotorcycle(Guid id)
     {
-        var motorcycle = await _motorcycleRepository.GetByIdAsync(id);
-        return await _motorcycleRepository.DeleteAsync(motorcycle);
+
+        var hasMotorcycleRental = await _rentalRepository.HasMotorcycleRental(id);
+
+        if (!hasMotorcycleRental) 
+        {
+            var motorcycle = await _motorcycleRepository.GetByIdAsync(id);
+            return await _motorcycleRepository.DeleteAsync(motorcycle);
+        }
+
+        return false;
+       
     }
 
     public async Task<MotorcycleResponse> GetMotorcycleById(Guid id)
@@ -42,10 +53,10 @@ public class MotorcycleService : IMotocycleService, IMotorcycleBusinessRules
 
         var motorcycle = await _motorcycleRepository.GetMotorcycleByPlate(plate);
 
-        // transforma em lista
+
         var motorcycles = new List<Motorcycle> { motorcycle };
 
-        // mapeia a lista inteira para DTO
+  
         var dtos = _mapper.Map<List<MotorcycleResponse>>(motorcycles);
 
         return dtos;
