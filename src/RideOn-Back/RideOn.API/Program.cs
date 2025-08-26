@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using RideOn.CrossCutting.Dependencies;
+using RideOn.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,19 @@ builder.Services.AddInfrastructureDependencies(builder.Configuration);
 builder.Services.AddApplicationDependencies(builder.Configuration);
 
 var app = builder.Build();
+
+
+// Roda migrations automaticamente
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<RideOnDbContext>();
+    db.Database.Migrate();
+}
+
+// Configura rotas e middlewares
+app.MapControllers();
+app.Run();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

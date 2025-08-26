@@ -16,10 +16,7 @@ public static class InfrastructureDependencies
 
         services.AddDbContext<RideOnDbContext>(options =>
         {
-            options.UseNpgsql(connection_string)
-                .ConfigureLoggingCacheTime(TimeSpan.FromSeconds(1))
-                .EnableDetailedErrors(detailedErrorsEnabled: true)
-                .EnableSensitiveDataLogging(sensitiveDataLoggingEnabled: true);
+            options.UseNpgsql(connection_string);
         });
 
 
