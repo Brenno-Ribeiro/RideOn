@@ -19,8 +19,8 @@ internal class RentalConfiguration : IEntityTypeConfiguration<Rental>
             .HasColumnType("decimal(10,2)")
             .IsRequired();
 
-        builder.Property(rc => rc.Plane)
-            .HasColumnName("plane")
+        builder.Property(rc => rc.Plan)
+            .HasColumnName("plan")
             .IsRequired();
 
         builder.Property(rc => rc.StartDate)

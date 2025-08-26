@@ -3,7 +3,7 @@
 public class Rental : Entity
 {
     public decimal DailyRate { get; private set; }
-    public int Plane{ get; set; }
+    public int Plan { get; set; }
 
     public DateTimeOffset StartDate { get; private set; }
     public DateTimeOffset EndDate { get; private set; }
@@ -20,6 +20,8 @@ public class Rental : Entity
     {
             
     }
+
+    public void UpdateReturnDate(DateTime returnDate) => ReturnDate = returnDate;
 
     public Rental(decimal dailyRate, DateTimeOffset startDate, DateTimeOffset endDate, DateTimeOffset expectedEndDate, DateTimeOffset returnDate, DeliveryMan? deliveryMan, Motorcycle? motorcycle)
     {
