@@ -32,7 +32,7 @@ public class RentalService : IRentalService, IRentalBusinessRules
         return await _rentalRepository.SaveAsync(rental);
     }
 
-    public async Task<bool> RentalReturn(Guid id, DateTime returnDate)
+    public async Task<bool> RentalReturn(Guid id, DateTimeOffset returnDate)
     {
         var rental = await _rentalRepository.GetByIdAsync(id);
 

@@ -10,7 +10,7 @@ public interface IRentalService
 
     Task<RentalResponse> GetRentalById(Guid id);
 
-    Task<bool> RentalReturn(Guid id,DateTime returnDate);
+    Task<bool> RentalReturn(Guid id,DateTimeOffset returnDate);
 
 }
 

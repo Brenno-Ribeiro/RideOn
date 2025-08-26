@@ -21,7 +21,7 @@ public class Rental : Entity
             
     }
 
-    public void UpdateReturnDate(DateTime returnDate) => ReturnDate = returnDate;
+    public void UpdateReturnDate(DateTimeOffset returnDate) => ReturnDate = returnDate;
 
     public Rental(decimal dailyRate, DateTimeOffset startDate, DateTimeOffset endDate, DateTimeOffset expectedEndDate, DateTimeOffset returnDate, DeliveryMan? deliveryMan, Motorcycle? motorcycle)
     {
