@@ -11,5 +11,13 @@ namespace RideOn.Infrastructure.Repositories
         {
         }
 
+        public async Task<bool> SaveCnhImage(Guid id, string base64String)
+        {
+            var delivryMan = await GetByIdAsync(id);
+
+            delivryMan.CNH.CnhImage = base64String;
+
+            return await UpdateAsync(delivryMan);
+        }
     }
 }
