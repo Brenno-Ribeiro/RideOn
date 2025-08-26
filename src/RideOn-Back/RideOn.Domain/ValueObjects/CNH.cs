@@ -1,13 +1,12 @@
-﻿namespace RideOn.Domain.Entities;
+﻿using RideOn.Domain.Entities;
 
-public class CNH : Entity
+namespace RideOn.Domain.ValueObjects;
+
+public sealed class CNH
 {
     public string? CnhNumber { get; set; }
     public string? CnhType { get; set; }
     public string? CnhImage { get; set; }
-
-    public Guid DeliveryManId { get; set; }
-    public DeliveryMan? DeliveryMan { get; set; }
 
     public CNH() { }
 

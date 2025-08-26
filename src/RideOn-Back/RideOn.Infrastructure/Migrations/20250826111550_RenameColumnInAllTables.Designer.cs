@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RideOn.Infrastructure.Context;
@@ -11,9 +12,11 @@ using RideOn.Infrastructure.Context;
 namespace RideOn.Infrastructure.Migrations
 {
     [DbContext(typeof(RideOnDbContext))]
-    partial class RideOnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250826111550_RenameColumnInAllTables")]
+    partial class RenameColumnInAllTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

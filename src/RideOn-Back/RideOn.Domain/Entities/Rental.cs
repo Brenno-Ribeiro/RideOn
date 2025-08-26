@@ -3,6 +3,7 @@
 public class Rental : Entity
 {
     public decimal DailyRate { get; private set; }
+    public int Plane{ get; set; }
 
     public DateTimeOffset StartDate { get; private set; }
     public DateTimeOffset EndDate { get; private set; }

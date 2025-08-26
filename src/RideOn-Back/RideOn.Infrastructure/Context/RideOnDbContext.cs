@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RideOn.Domain.Entities;
+using RideOn.Domain.ValueObjects;
 using RideOn.Infrastructure.Configuration;
 
 namespace RideOn.Infrastructure.Context
@@ -12,17 +13,14 @@ namespace RideOn.Infrastructure.Context
         }
 
         DbSet<Rental> Rentals { get; set; }
-        DbSet<DeliveryMan> Motorcycles { get; set; }
+        DbSet<Motorcycle> Motorcycles { get; set; }
         DbSet<DeliveryMan> DeliveryMen { get; set; }
-        DbSet<CNH> CNHs { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new RentalConfiguration());
             builder.ApplyConfiguration(new MotorcycleConfiguration());
             builder.ApplyConfiguration(new DeliveryManConfiguration());
-            builder.ApplyConfiguration(new CNHConfiguration());
         }
     }
 }

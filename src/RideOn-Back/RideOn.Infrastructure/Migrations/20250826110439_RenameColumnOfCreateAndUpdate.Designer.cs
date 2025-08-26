@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RideOn.Infrastructure.Context;
@@ -11,9 +12,11 @@ using RideOn.Infrastructure.Context;
 namespace RideOn.Infrastructure.Migrations
 {
     [DbContext(typeof(RideOnDbContext))]
-    partial class RideOnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250826110439_RenameColumnOfCreateAndUpdate")]
+    partial class RenameColumnOfCreateAndUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,20 +29,17 @@ namespace RideOn.Infrastructure.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("birth_date");
 
                     b.Property<DateTimeOffset>("Created_At")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid>("Created_by")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -48,12 +48,10 @@ namespace RideOn.Infrastructure.Migrations
                         .HasColumnName("name");
 
                     b.Property<DateTimeOffset>("Updated_At")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid>("Updated_by")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -101,8 +99,7 @@ namespace RideOn.Infrastructure.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTimeOffset>("Created_At")
                         .HasColumnType("timestamp with time zone")
@@ -117,8 +114,7 @@ namespace RideOn.Infrastructure.Migrations
                         .HasColumnName("daily_rate");
 
                     b.Property<Guid>("DeliveryManId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("delivery_man_id");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTimeOffset>("EndDate")
                         .HasColumnType("timestamp with time zone")
@@ -129,8 +125,7 @@ namespace RideOn.Infrastructure.Migrations
                         .HasColumnName("expected_end_date");
 
                     b.Property<Guid>("MotorcycleId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("motorcycle_id");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Plane")
                         .HasColumnType("integer")
