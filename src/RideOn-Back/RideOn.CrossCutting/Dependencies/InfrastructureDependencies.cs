@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RideOn.Domain.Abstrations.Repositories;
 using RideOn.Infrastructure.Context;
+using RideOn.Infrastructure.Repositories;
 
 namespace RideOn.CrossCutting.Dependencies;
 
@@ -20,6 +22,9 @@ public static class InfrastructureDependencies
                 .EnableSensitiveDataLogging(sensitiveDataLoggingEnabled: true);
         });
 
+
+        services.AddScoped<IMotorcycleRepository, MotocycleRepository>();
+        
         return services;
     }
 }

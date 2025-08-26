@@ -7,15 +7,16 @@ namespace RideOn.Infrastructure.Context
 {
     public class RideOnDbContext : DbContext
     {
+        public DbSet<Rental> Rentals { get; set; }
+        public DbSet<Motorcycle> Motorcycles { get; set; }
+        public DbSet<DeliveryMan> DeliveryMen { get; set; }
+
         public RideOnDbContext(DbContextOptions<RideOnDbContext> options) : base(options)
         {
                 
         }
 
-        DbSet<Rental> Rentals { get; set; }
-        DbSet<Motorcycle> Motorcycles { get; set; }
-        DbSet<DeliveryMan> DeliveryMen { get; set; }
-
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new RentalConfiguration());
